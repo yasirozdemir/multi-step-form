@@ -7,14 +7,13 @@ type Step1Props = {
 
 const Step1 = ({ name, email, phone, handleChange }: Step1Props) => {
   return (
-    <div>
+    <section>
       <label htmlFor="name">Name</label>
       <input
         id="name"
         name="name"
         type="text"
         value={name}
-        data-step="step1"
         onChange={handleChange}
       />
       <label htmlFor="email">Email</label>
@@ -23,7 +22,6 @@ const Step1 = ({ name, email, phone, handleChange }: Step1Props) => {
         name="email"
         type="mail"
         value={email}
-        data-step="step1"
         onChange={handleChange}
       />
       <label htmlFor="phone">Phone</label>
@@ -32,11 +30,10 @@ const Step1 = ({ name, email, phone, handleChange }: Step1Props) => {
         name="phone"
         type="phone"
         value={phone}
-        data-step="step1"
         onChange={handleChange}
       />
       <button type="button">Next</button>
-    </div>
+    </section>
   );
 };
 

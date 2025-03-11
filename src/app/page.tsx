@@ -1,26 +1,40 @@
 "use client";
 
-import { FormProvider, IFormDataKey, useFormData } from "@/providers";
+import { FormProvider, useFormData } from "@/providers";
 import Step1 from "./components/Step1";
+import Step2 from "./components/Step2";
 
 function FormComponent() {
   const { formData, setFormData } = useFormData();
-  const { step1 } = formData;
+  const { step1, step2 } = formData;
   const { name, email, phone } = step1;
+  const { plan, period } = step2;
 
+  // for step 1 inputs
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, dataset } = e.target;
-    const { step } = dataset as { step: IFormDataKey };
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      step1: {
+        ...prev.step1,
+        [name]: value,
+      },
+    }));
+  };
 
-    if (step)
-      setFormData((prev) => ({
-        ...prev,
-        [step]: {
-          ...prev[step],
-          [name]: value,
-        },
-      }));
-    else throw new Error("Step not found");
+  // for step 2 buttons
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const { type, option } = e.currentTarget.dataset as {
+      type: string;
+      option: string;
+    };
+    setFormData((prev) => ({
+      ...prev,
+      step2: {
+        ...prev.step2,
+        [type]: option,
+      },
+    }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -38,6 +52,7 @@ function FormComponent() {
           phone={phone}
           handleChange={handleChange}
         />
+        <Step2 plan={plan} period={period} handleClick={handleClick} />
         <button type="submit">Submit</button>
       </form>
     </div>

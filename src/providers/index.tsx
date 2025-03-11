@@ -19,8 +19,6 @@ export type IFormData = {
   };
 };
 
-export type IFormDataKey = keyof IFormData;
-
 const initialFormData: IFormData = {
   step1: {
     name: "",
