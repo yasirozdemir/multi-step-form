@@ -21,6 +21,7 @@ const Step2 = () => {
   };
 
   const listClassList = "flex flex-row space-x-4";
+
   const buttonClassList = "bg-red-200 text-red-800 font-bold py-2 px-4 rounded";
   const selectedClassList = " bg-red-800 text-white";
   return (
@@ -37,7 +38,15 @@ const Step2 = () => {
                 buttonClassList + (plan === "arcade" && selectedClassList)
               }
             >
-              Arcade
+              <p>Arcade</p>
+              {period === "monthly" ? (
+                <p>$9/mo</p>
+              ) : (
+                <p className="flex flex-col">
+                  <span>$90/yr</span>
+                  <small>2 months free</small>
+                </p>
+              )}
             </button>
           </li>
 
@@ -51,7 +60,15 @@ const Step2 = () => {
                 buttonClassList + (plan === "advanced" && selectedClassList)
               }
             >
-              Advanced
+              <p>Advanced</p>
+              {period === "monthly" ? (
+                <p>$12/mo</p>
+              ) : (
+                <p className="flex flex-col">
+                  <span>$120/yr</span>
+                  <small>2 months free</small>
+                </p>
+              )}
             </button>
           </li>
 
@@ -65,7 +82,15 @@ const Step2 = () => {
                 buttonClassList + (plan === "pro" && selectedClassList)
               }
             >
-              Pro
+              <p>Pro</p>
+              {period === "monthly" ? (
+                <p>$15/mo</p>
+              ) : (
+                <p className="flex flex-col">
+                  <span>$150/yr</span>
+                  <small>2 months free</small>
+                </p>
+              )}
             </button>
           </li>
         </ul>

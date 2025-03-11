@@ -2,7 +2,10 @@ import { useFormData } from "@/providers";
 
 const Step3 = () => {
   const { formData, setFormData } = useFormData();
-  const { step3 } = formData;
+  const {
+    step2: { period },
+    step3,
+  } = formData;
 
   const handleSelect = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { select } = e.currentTarget.dataset as {
@@ -32,7 +35,15 @@ const Step3 = () => {
                 buttonClassList + (step3.online_service && selectedClassList)
               }
             >
-              Online Service
+              <p>Online Service</p>
+              <small>Access to multiplayer games</small>
+              {period === "monthly" ? (
+                <p>
+                  <span>+$1/mo</span>
+                </p>
+              ) : (
+                <p>$+10/yr</p>
+              )}
             </button>
           </li>
 
@@ -45,7 +56,15 @@ const Step3 = () => {
                 buttonClassList + (step3.larger_storage && selectedClassList)
               }
             >
-              Larger Storage
+              <p>Larger Storage</p>
+              <small>Extra 1TB of cloud save</small>
+              {period === "monthly" ? (
+                <p>
+                  <span>+$2/mo</span>
+                </p>
+              ) : (
+                <p>$+20/yr</p>
+              )}
             </button>
           </li>
 
@@ -59,7 +78,15 @@ const Step3 = () => {
                 (step3.customizable_profile && selectedClassList)
               }
             >
-              Customizable Profile
+              <p>Customizable Profile</p>
+              <small>Custom theme on your profile</small>
+              {period === "monthly" ? (
+                <p>
+                  <span>+$2/mo</span>
+                </p>
+              ) : (
+                <p>$+20/yr</p>
+              )}
             </button>
           </li>
         </ul>

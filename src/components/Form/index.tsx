@@ -5,7 +5,7 @@ import { useFormData } from "@/providers";
 import Step1 from "@/components/Step1";
 import Step2 from "@/components/Step2";
 import Step3 from "@/components/Step3";
-import Summary from "../Summary";
+import Summary from "@/components/Summary";
 
 const Form = () => {
   const { formData } = useFormData();
