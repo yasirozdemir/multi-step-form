@@ -13,9 +13,9 @@ export type IFormData = {
     period: string;
   };
   step3: {
-    add_on1: boolean;
-    add_on2: boolean;
-    add_on3: boolean;
+    online_service: boolean;
+    larger_storage: boolean;
+    customizable_profile: boolean;
   };
 };
 
@@ -30,9 +30,9 @@ const initialFormData: IFormData = {
     period: "monthly",
   },
   step3: {
-    add_on1: false,
-    add_on2: false,
-    add_on3: false,
+    online_service: false,
+    larger_storage: false,
+    customizable_profile: false,
   },
 };
 

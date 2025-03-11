@@ -3,10 +3,11 @@
 import { FormProvider, useFormData } from "@/providers";
 import Step1 from "./components/Step1";
 import Step2 from "./components/Step2";
+import Step3 from "./components/Step3";
 
 function FormComponent() {
   const { formData, setFormData } = useFormData();
-  const { step1, step2 } = formData;
+  const { step1, step2, step3 } = formData;
   const { name, email, phone } = step1;
   const { plan, period } = step2;
 
@@ -37,6 +38,20 @@ function FormComponent() {
     }));
   };
 
+  // for step 3 buttons
+  const handleSelect = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const { select } = e.currentTarget.dataset as {
+      select: keyof typeof step3;
+    };
+    setFormData((prev) => ({
+      ...prev,
+      step3: {
+        ...prev.step3,
+        [select]: !prev.step3[select],
+      },
+    }));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(formData);
@@ -53,6 +68,7 @@ function FormComponent() {
           handleChange={handleChange}
         />
         <Step2 plan={plan} period={period} handleClick={handleClick} />
+        <Step3 add_ons={step3} handleSelect={handleSelect} />
         <button type="submit">Submit</button>
       </form>
     </div>
