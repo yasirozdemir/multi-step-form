@@ -1,23 +1,7 @@
 "use client";
 
+import { IFormData } from "@/types";
 import { createContext, ReactNode, useContext, useState } from "react";
-
-export type IFormData = {
-  step1: {
-    name: string;
-    email: string;
-    phone: string;
-  };
-  step2: {
-    plan: string;
-    period: string;
-  };
-  step3: {
-    online_service: boolean;
-    larger_storage: boolean;
-    customizable_profile: boolean;
-  };
-};
 
 const initialFormData: IFormData = {
   step1: {

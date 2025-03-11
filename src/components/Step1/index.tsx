@@ -1,11 +1,22 @@
-type Step1Props = {
-  name: string;
-  email: string;
-  phone: string;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
+import { useFormData } from "@/providers";
 
-const Step1 = ({ name, email, phone, handleChange }: Step1Props) => {
+const Step1 = () => {
+  const { formData, setFormData } = useFormData();
+  const {
+    step1: { name, email, phone },
+  } = formData;
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      step1: {
+        ...prev.step1,
+        [name]: value,
+      },
+    }));
+  };
+
   return (
     <section>
       <label htmlFor="name">Name</label>
@@ -32,7 +43,6 @@ const Step1 = ({ name, email, phone, handleChange }: Step1Props) => {
         value={phone}
         onChange={handleChange}
       />
-      <button type="button">Next</button>
     </section>
   );
 };

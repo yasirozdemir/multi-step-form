@@ -1,13 +1,22 @@
-type Step3Props = {
-  add_ons: {
-    online_service: boolean;
-    larger_storage: boolean;
-    customizable_profile: boolean;
-  };
-  handleSelect: (e: React.MouseEvent<HTMLButtonElement>) => void;
-};
+import { useFormData } from "@/providers";
 
-const Step3 = ({ handleSelect, add_ons }: Step3Props) => {
+const Step3 = () => {
+  const { formData, setFormData } = useFormData();
+  const { step3 } = formData;
+
+  const handleSelect = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const { select } = e.currentTarget.dataset as {
+      select: keyof typeof step3;
+    };
+    setFormData((prev) => ({
+      ...prev,
+      step3: {
+        ...prev.step3,
+        [select]: !prev.step3[select],
+      },
+    }));
+  };
+
   const buttonClassList = "bg-red-200 text-red-800 font-bold py-2 px-4 rounded";
   const selectedClassList = " bg-red-800 text-white";
   return (
@@ -20,7 +29,7 @@ const Step3 = ({ handleSelect, add_ons }: Step3Props) => {
               data-select="online_service"
               onClick={handleSelect}
               className={
-                buttonClassList + (add_ons.online_service && selectedClassList)
+                buttonClassList + (step3.online_service && selectedClassList)
               }
             >
               Online Service
@@ -33,7 +42,7 @@ const Step3 = ({ handleSelect, add_ons }: Step3Props) => {
               data-select="larger_storage"
               onClick={handleSelect}
               className={
-                buttonClassList + (add_ons.larger_storage && selectedClassList)
+                buttonClassList + (step3.larger_storage && selectedClassList)
               }
             >
               Larger Storage
@@ -47,7 +56,7 @@ const Step3 = ({ handleSelect, add_ons }: Step3Props) => {
               onClick={handleSelect}
               className={
                 buttonClassList +
-                (add_ons.customizable_profile && selectedClassList)
+                (step3.customizable_profile && selectedClassList)
               }
             >
               Customizable Profile

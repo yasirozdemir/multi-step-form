@@ -1,10 +1,25 @@
-type Step2Props = {
-  plan: string;
-  period: string;
-  handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-};
+import { useFormData } from "@/providers";
 
-const Step2 = ({ plan, period, handleClick }: Step2Props) => {
+const Step2 = () => {
+  const { formData, setFormData } = useFormData();
+  const {
+    step2: { plan, period },
+  } = formData;
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const { type, option } = e.currentTarget.dataset as {
+      type: string;
+      option: string;
+    };
+    setFormData((prev) => ({
+      ...prev,
+      step2: {
+        ...prev.step2,
+        [type]: option,
+      },
+    }));
+  };
+
   const listClassList = "flex flex-row space-x-4";
   const buttonClassList = "bg-red-200 text-red-800 font-bold py-2 px-4 rounded";
   const selectedClassList = " bg-red-800 text-white";
