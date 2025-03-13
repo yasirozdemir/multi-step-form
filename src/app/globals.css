@@ -19,3 +19,11 @@
 body {
   background-color: var(--magnolia);
 }
+
+section {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  max-width: 1024px;
+  margin-inline: auto;
+}

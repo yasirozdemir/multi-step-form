@@ -32,8 +32,8 @@ const Form = () => {
   };
 
   return (
-    <div className="px-6 xl:px-0">
-      <form onSubmit={handleSubmit}>
+    <div className="min-h-screen flex flex-col px-6 xl:px-0">
+      <form onSubmit={handleSubmit} className="flex flex-col flex-grow">
         <div className="md:hidden -mx-6">
           <Image
             src="/bg-sidebar-mobile.svg"
@@ -60,13 +60,13 @@ const Form = () => {
             ))}
           </ol>
         </div>
-        <div className="bg-white p-6 shadow-md rounded-2xl max-w-[1024px] mx-auto">
+        <div className="flex flex-col flex-grow">
           {step === 1 && <Step1 />}
           {step === 2 && <Step2 />}
           {step === 3 && <Step3 />}
           {step === 4 && <Summary />}
         </div>
-        <div className="fixed bg-white left-0 right-0 bottom-0 h-18 flex items-center px-6 md:hidden">
+        <footer className="h-18 flex items-center bg-white -mx-6 px-6 mt-auto">
           {step > 1 && (
             <button
               type="button"
@@ -93,7 +93,7 @@ const Form = () => {
               Confirm
             </button>
           )}
-        </div>
+        </footer>
       </form>
     </div>
   );

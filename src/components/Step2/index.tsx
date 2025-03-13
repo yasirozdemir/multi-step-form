@@ -1,4 +1,7 @@
 import { useFormData } from "@/providers";
+import Title from "../Title";
+import Description from "../Description";
+import Image from "next/image";
 
 const Step2 = () => {
   const { formData, setFormData } = useFormData();
@@ -20,14 +23,18 @@ const Step2 = () => {
     }));
   };
 
-  const listClassList = "flex flex-row space-x-4";
-
-  const buttonClassList = "bg-red-200 text-red-800 font-bold py-2 px-4 rounded";
-  const selectedClassList = " bg-red-800 text-white";
+  const buttonClassList =
+    "flex flex-row items-center p-4 rounded-lg border-2 border-gray-100";
+  const selectedClassList =
+    " !bg-[var(--light-gray)] !border-[var(--marine-blue)]";
   return (
     <section>
+      <Title>Select your plan</Title>
+      <Description>
+        You have the option of monthly or yearly billing.
+      </Description>
       <div>
-        <ul className={listClassList}>
+        <ul className="">
           <li>
             <button
               type="button"
@@ -38,15 +45,23 @@ const Step2 = () => {
                 buttonClassList + (plan === "arcade" && selectedClassList)
               }
             >
-              <p>Arcade</p>
-              {period === "monthly" ? (
-                <p>$9/mo</p>
-              ) : (
-                <p className="flex flex-col">
-                  <span>$90/yr</span>
-                  <small>2 months free</small>
-                </p>
-              )}
+              <Image
+                src="/icon-arcade.svg"
+                alt="arcade icon"
+                width={64}
+                height={64}
+              />
+              <div>
+                <p>Arcade</p>
+                {period === "monthly" ? (
+                  <p>$9/mo</p>
+                ) : (
+                  <p className="flex flex-col">
+                    <span>$90/yr</span>
+                    <small>2 months free</small>
+                  </p>
+                )}
+              </div>
             </button>
           </li>
 
@@ -60,15 +75,23 @@ const Step2 = () => {
                 buttonClassList + (plan === "advanced" && selectedClassList)
               }
             >
-              <p>Advanced</p>
-              {period === "monthly" ? (
-                <p>$12/mo</p>
-              ) : (
-                <p className="flex flex-col">
-                  <span>$120/yr</span>
-                  <small>2 months free</small>
-                </p>
-              )}
+              <Image
+                src="/icon-advanced.svg"
+                alt="advanced icon"
+                width={64}
+                height={64}
+              />
+              <div>
+                <p>Advanced</p>
+                {period === "monthly" ? (
+                  <p>$12/mo</p>
+                ) : (
+                  <p className="flex flex-col">
+                    <span>$120/yr</span>
+                    <small>2 months free</small>
+                  </p>
+                )}
+              </div>
             </button>
           </li>
 
@@ -82,20 +105,28 @@ const Step2 = () => {
                 buttonClassList + (plan === "pro" && selectedClassList)
               }
             >
-              <p>Pro</p>
-              {period === "monthly" ? (
-                <p>$15/mo</p>
-              ) : (
-                <p className="flex flex-col">
-                  <span>$150/yr</span>
-                  <small>2 months free</small>
-                </p>
-              )}
+              <Image
+                src="/icon-pro.svg"
+                alt="pro icon"
+                width={64}
+                height={64}
+              />
+              <div>
+                <p>Pro</p>
+                {period === "monthly" ? (
+                  <p>$15/mo</p>
+                ) : (
+                  <p className="flex flex-col">
+                    <span>$150/yr</span>
+                    <small>2 months free</small>
+                  </p>
+                )}
+              </div>
             </button>
           </li>
         </ul>
 
-        <ul className={listClassList}>
+        <ul className="">
           <li>
             <button
               type="button"

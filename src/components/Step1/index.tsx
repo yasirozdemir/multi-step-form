@@ -1,4 +1,6 @@
 import { useFormData } from "@/providers";
+import Title from "../Title";
+import Description from "../Description";
 
 const Step1 = () => {
   const { formData, setFormData } = useFormData();
@@ -23,12 +25,10 @@ const Step1 = () => {
 
   return (
     <section>
-      <h1 className="text-[var(--marine-blue)] font-bold text-2xl">
-        Personal info
-      </h1>
-      <p className="text-lg text-gray-400 mt-2">
+      <Title>Personal info</Title>
+      <Description>
         Please provide your name, email address, and phone number.
-      </p>
+      </Description>
       <div className="flex flex-col">
         <label htmlFor="name" className={labelClassList}>
           Name
