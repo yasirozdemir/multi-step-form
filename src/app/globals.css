@@ -26,4 +26,5 @@ section {
   border-radius: 1rem;
   max-width: 1024px;
   margin-inline: auto;
+  margin-block-end: 1.5rem;
 }
