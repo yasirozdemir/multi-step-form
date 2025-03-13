@@ -11,8 +11,8 @@ export type IStep1 = {
 };
 
 export type IStep2 = {
-  plan: string;
-  period: string;
+  plan: "arcade" | "advanced" | "pro";
+  period: "monthly" | "yearly";
 };
 
 export type IStep3 = {
