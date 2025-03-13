@@ -24,9 +24,9 @@ const Step2 = () => {
   };
 
   const buttonClassList =
-    "flex flex-row items-center p-4 rounded-lg border-2 border-gray-100";
+    "w-full flex flex-row items-center p-4 rounded-lg border border-gray-300 transition-all duration-200";
   const selectedClassList =
-    " !bg-[var(--light-gray)] !border-[var(--marine-blue)]";
+    " !bg-[var(--magnolia)] !border-[var(--purplish-blue)]";
   return (
     <section>
       <Title>Select your plan</Title>
@@ -34,7 +34,7 @@ const Step2 = () => {
         You have the option of monthly or yearly billing.
       </Description>
       <div>
-        <ul className="">
+        <ul className="flex flex-col gap-4 mt-4">
           <li>
             <button
               type="button"
@@ -48,18 +48,18 @@ const Step2 = () => {
               <Image
                 src="/icon-arcade.svg"
                 alt="arcade icon"
-                width={64}
-                height={64}
+                width={48}
+                height={48}
               />
-              <div>
-                <p>Arcade</p>
+              <div className="flex flex-col items-start grow ml-4 text-[var(--marine-blue)]">
+                <p className="font-bold">Arcade</p>
                 {period === "monthly" ? (
-                  <p>$9/mo</p>
+                  <span className="text-gray-400">$9/mo</span>
                 ) : (
-                  <p className="flex flex-col">
-                    <span>$90/yr</span>
+                  <>
+                    <span className="text-gray-400">$90/yr</span>
                     <small>2 months free</small>
-                  </p>
+                  </>
                 )}
               </div>
             </button>
@@ -78,18 +78,18 @@ const Step2 = () => {
               <Image
                 src="/icon-advanced.svg"
                 alt="advanced icon"
-                width={64}
-                height={64}
+                width={48}
+                height={48}
               />
-              <div>
-                <p>Advanced</p>
+              <div className="flex flex-col items-start grow ml-4 text-[var(--marine-blue)]">
+                <p className="font-bold">Advanced</p>
                 {period === "monthly" ? (
-                  <p>$12/mo</p>
+                  <span className="text-gray-400">$12/mo</span>
                 ) : (
-                  <p className="flex flex-col">
-                    <span>$120/yr</span>
+                  <>
+                    <span className="text-gray-400">$120/yr</span>
                     <small>2 months free</small>
-                  </p>
+                  </>
                 )}
               </div>
             </button>
@@ -108,25 +108,25 @@ const Step2 = () => {
               <Image
                 src="/icon-pro.svg"
                 alt="pro icon"
-                width={64}
-                height={64}
+                width={48}
+                height={48}
               />
-              <div>
-                <p>Pro</p>
+              <div className="flex flex-col items-start grow ml-4 text-[var(--marine-blue)]">
+                <p className="font-bold">Pro</p>
                 {period === "monthly" ? (
-                  <p>$15/mo</p>
+                  <span className="text-gray-400">$15/mo</span>
                 ) : (
-                  <p className="flex flex-col">
-                    <span>$150/yr</span>
+                  <>
+                    <span className="text-gray-400">$150/yr</span>
                     <small>2 months free</small>
-                  </p>
+                  </>
                 )}
               </div>
             </button>
           </li>
         </ul>
 
-        <ul className="">
+        <ul className="mt-4">
           <li>
             <button
               type="button"
