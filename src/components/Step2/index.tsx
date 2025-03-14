@@ -10,15 +10,24 @@ const Step2 = () => {
   } = formData;
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const { type, option } = e.currentTarget.dataset as {
-      type: string;
+    const { option } = e.currentTarget.dataset as {
       option: string;
     };
     setFormData((prev) => ({
       ...prev,
       step2: {
         ...prev.step2,
-        [type]: option,
+        plan: option as "arcade" | "advanced" | "pro",
+      },
+    }));
+  };
+
+  const changePeriod = () => {
+    setFormData((prev) => ({
+      ...prev,
+      step2: {
+        ...prev.step2,
+        period: prev.step2.period === "monthly" ? "yearly" : "monthly",
       },
     }));
   };
@@ -38,7 +47,6 @@ const Step2 = () => {
           <li>
             <button
               type="button"
-              data-type="plan"
               data-option="arcade"
               onClick={handleClick}
               className={
@@ -68,7 +76,6 @@ const Step2 = () => {
           <li>
             <button
               type="button"
-              data-type="plan"
               data-option="advanced"
               onClick={handleClick}
               className={
@@ -98,7 +105,6 @@ const Step2 = () => {
           <li>
             <button
               type="button"
-              data-type="plan"
               data-option="pro"
               onClick={handleClick}
               className={
@@ -126,35 +132,37 @@ const Step2 = () => {
           </li>
         </ul>
 
-        <ul className="mt-4">
-          <li>
-            <button
-              type="button"
-              data-type="period"
-              data-option="monthly"
-              onClick={handleClick}
-              className={
-                buttonClassList + (period === "monthly" && selectedClassList)
-              }
-            >
-              Monthly
-            </button>
-          </li>
-
-          <li>
-            <button
-              type="button"
-              data-type="period"
-              data-option="yearly"
-              onClick={handleClick}
-              className={
-                buttonClassList + (period === "yearly" && selectedClassList)
-              }
-            >
-              Yearly
-            </button>
-          </li>
-        </ul>
+        <button
+          type="button"
+          className="w-full flex flex-row gap-6 items-center justify-center py-4 mt-4 rounded-lg bg-[var(--magnolia)] font-medium"
+          onClick={changePeriod}
+        >
+          <p
+            className={`${
+              period === "monthly"
+                ? "text-[var(--marine-blue)]"
+                : "text-[var(--cool-gray)]"
+            }`}
+          >
+            Monthly
+          </p>
+          <div className="w-10 h-6 bg-[var(--marine-blue)] rounded-full flex items-center px-1">
+            <div
+              className={`w-4 h-4 rounded-full bg-red-50 ${
+                period === "monthly" ? "" : "ml-auto"
+              }`}
+            />
+          </div>
+          <p
+            className={`${
+              period === "yearly"
+                ? "text-[var(--marine-blue)]"
+                : "text-[var(--cool-gray)]"
+            }`}
+          >
+            Yearly
+          </p>
+        </button>
       </div>
     </section>
   );

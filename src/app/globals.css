@@ -8,12 +8,11 @@
   --strawberry-red: hsl(354, 84%, 57%);
 
   --cool-gray: hsl(231, 11%, 63%);
-  --light-gray: hsl(229, 24%, 87%);
   --magnolia: hsl(217, 100%, 97%);
   --alabster: hsl(231, 100%, 00%);
   --white: hsl(0, 0%, 100%);
 
-  --light-gray: #f5f5f523;
+  --light-gray: hsla(0, 0%, 96%, 0.137);
 }
 
 body {
