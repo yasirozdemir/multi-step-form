@@ -18,3 +18,7 @@
 body {
   background-color: var(--magnolia);
 }
+
+button:hover {
+  cursor: pointer;
+}
