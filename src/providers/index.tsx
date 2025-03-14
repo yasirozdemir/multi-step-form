@@ -18,6 +18,32 @@ const initialFormData: IFormData = {
     larger_storage: false,
     customizable_profile: false,
   },
+  prices: {
+    arcade: {
+      monthly: 9,
+      yearly: 90,
+    },
+    advanced: {
+      monthly: 12,
+      yearly: 120,
+    },
+    pro: {
+      monthly: 15,
+      yearly: 150,
+    },
+    online_service: {
+      monthly: 1,
+      yearly: 10,
+    },
+    larger_storage: {
+      monthly: 2,
+      yearly: 20,
+    },
+    customizable_profile: {
+      monthly: 2,
+      yearly: 20,
+    },
+  },
 };
 
 const FormContext = createContext<{

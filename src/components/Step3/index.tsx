@@ -63,7 +63,7 @@ const Step3 = () => {
               </small>
             </p>
             <span className="text-sm text-[var(--purplish-blue)]">
-              {period === "monthly" ? <>+$1/mo</> : <>+$10/yr</>}
+              {period === "monthly" ? <>$1/mo</> : <>$10/yr</>}
             </span>
           </button>
         </li>
@@ -99,7 +99,7 @@ const Step3 = () => {
               </small>
             </p>
             <span className="text-sm text-[var(--purplish-blue)]">
-              {period === "monthly" ? <>+$2/mo</> : <>+$20/yr</>}
+              {period === "monthly" ? <>$2/mo</> : <>$20/yr</>}
             </span>
           </button>
         </li>
@@ -136,7 +136,7 @@ const Step3 = () => {
               </small>
             </p>
             <span className="text-sm text-[var(--purplish-blue)]">
-              {period === "monthly" ? <>+$2/mo</> : <>+$20/yr</>}
+              {period === "monthly" ? <>$2/mo</> : <>$20/yr</>}
             </span>
           </button>
         </li>

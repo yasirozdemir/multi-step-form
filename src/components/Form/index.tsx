@@ -7,6 +7,7 @@ import Step2 from "@/components/Step2";
 import Step3 from "@/components/Step3";
 import Summary from "@/components/Summary";
 import Image from "next/image";
+import Finished from "../Finished";
 
 const Form = () => {
   const { formData } = useFormData();
@@ -14,6 +15,7 @@ const Form = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setStep(5);
     console.log(formData);
   };
 
@@ -65,35 +67,38 @@ const Form = () => {
           {step === 2 && <Step2 />}
           {step === 3 && <Step3 />}
           {step === 4 && <Summary />}
+          {step === 5 && <Finished />}
         </div>
-        <footer className="h-18 flex items-center bg-white -mx-6 px-6 mt-auto">
-          {step > 1 && (
-            <button
-              type="button"
-              onClick={handlePrev}
-              className="text-gray-400 font-bold"
-            >
-              Go Back
-            </button>
-          )}
-          {step < 4 && (
-            <button
-              type="button"
-              onClick={handleNext}
-              className="bg-[var(--marine-blue)] text-white px-6 py-2 rounded-md ml-auto font-bold"
-            >
-              Next Step
-            </button>
-          )}
-          {step === 4 && (
-            <button
-              type="submit"
-              className="bg-[var(--marine-blue)] text-white px-6 py-2 rounded-md ml-auto font-bold"
-            >
-              Confirm
-            </button>
-          )}
-        </footer>
+        {step !== 5 && (
+          <footer className="h-18 flex items-center bg-white -mx-6 px-6 mt-auto">
+            {step > 1 && (
+              <button
+                type="button"
+                onClick={handlePrev}
+                className="text-gray-400 font-bold"
+              >
+                Go Back
+              </button>
+            )}
+            {step < 4 && (
+              <button
+                type="button"
+                onClick={handleNext}
+                className="bg-[var(--marine-blue)] text-white px-6 py-2 rounded-md ml-auto font-bold"
+              >
+                Next Step
+              </button>
+            )}
+            {step === 4 && (
+              <button
+                type="submit"
+                className="bg-[var(--marine-blue)] text-white px-6 py-2 rounded-md ml-auto font-bold"
+              >
+                Confirm
+              </button>
+            )}
+          </footer>
+        )}
       </form>
     </div>
   );
