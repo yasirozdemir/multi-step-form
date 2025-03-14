@@ -19,7 +19,7 @@ const Summary = () => {
     (customizable_profile ? prices.customizable_profile[period] : 0);
 
   return (
-    <section>
+    <div>
       <Title>Finishing up</Title>
       <Description>
         Double-check everything looks OK before conforming.
@@ -74,7 +74,7 @@ const Summary = () => {
           ${totalPrice}/{pr}
         </p>
       </div>
-    </section>
+    </div>
   );
 };
 

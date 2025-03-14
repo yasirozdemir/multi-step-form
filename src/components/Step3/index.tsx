@@ -28,7 +28,7 @@ const Step3 = () => {
   const selectedClassList =
     " !bg-[var(--magnolia)] !border-[var(--purplish-blue)]";
   return (
-    <section>
+    <div>
       <Title>Pick add-ons</Title>
       <Description>Add-ons help enchance your gaming experience.</Description>
       <ul className="flex flex-col gap-4 mt-4">
@@ -141,7 +141,7 @@ const Step3 = () => {
           </button>
         </li>
       </ul>
-    </section>
+    </div>
   );
 };
 

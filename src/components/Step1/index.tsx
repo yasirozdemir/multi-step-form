@@ -24,7 +24,7 @@ const Step1 = () => {
     "border border-gray-300 px-3 py-2 rounded-md text-ellipsis placeholder:text-gray-400";
 
   return (
-    <section>
+    <div>
       <Title>Personal info</Title>
       <Description>
         Please provide your name, email address, and phone number.
@@ -67,7 +67,7 @@ const Step1 = () => {
           className={inputClassList}
         />
       </div>
-    </section>
+    </div>
   );
 };
 

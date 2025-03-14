@@ -37,7 +37,7 @@ const Step2 = () => {
   const selectedClassList =
     " !bg-[var(--magnolia)] !border-[var(--purplish-blue)]";
   return (
-    <section>
+    <div>
       <Title>Select your plan</Title>
       <Description>
         You have the option of monthly or yearly billing.
@@ -164,7 +164,7 @@ const Step2 = () => {
           </p>
         </button>
       </div>
-    </section>
+    </div>
   );
 };
 
